@@ -93,6 +93,23 @@
         .popup .already-joined:hover {
             background-color: #c82333;
         }
+
+        /* Telegram Button */
+        .telegram-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .telegram-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -118,8 +135,42 @@
             <p class="time">2024-12-13 18:00</p>
             <a href="streaming.html?streamUrl=https://example.com/stream2.mp4" class="watch-now">Watch Now</a>
         </div>
-        
-        <!-- More matches as needed -->
+
+        <!-- Match 3 -->
+        <div class="match-card">
+            <img src="https://via.placeholder.com/250x150" alt="Match 3">
+            <h3>Team E vs Team F</h3>
+            <p class="league-name">Basketball Championship</p>
+            <p class="time">2024-12-13 14:00</p>
+            <a href="streaming.html?streamUrl=https://example.com/stream3.mp4" class="watch-now">Watch Now</a>
+        </div>
+
+        <!-- Match 4 -->
+        <div class="match-card">
+            <img src="https://via.placeholder.com/250x150" alt="Match 4">
+            <h3>Player A vs Player B</h3>
+            <p class="league-name">Tennis Open</p>
+            <p class="time">2024-12-14 10:00</p>
+            <a href="streaming.html?streamUrl=https://example.com/stream4.mp4" class="watch-now">Watch Now</a>
+        </div>
+
+        <!-- Match 5 -->
+        <div class="match-card">
+            <img src="https://via.placeholder.com/250x150" alt="Match 5">
+            <h3>Team G vs Team H</h3>
+            <p class="league-name">Cricket League</p>
+            <p class="time">2024-12-14 12:00</p>
+            <a href="streaming.html?streamUrl=https://example.com/stream5.mp4" class="watch-now">Watch Now</a>
+        </div>
+
+        <!-- Match 6 -->
+        <div class="match-card">
+            <img src="https://via.placeholder.com/250x150" alt="Match 6">
+            <h3>Team I vs Team J</h3>
+            <p class="league-name">Baseball Championship</p>
+            <p class="time">2024-12-14 15:00</p>
+            <a href="streaming.html?streamUrl=https://example.com/stream6.mp4" class="watch-now">Watch Now</a>
+        </div>
     </div>
 
     <!-- Telegram Join Popup -->
@@ -130,6 +181,9 @@
             <button class="already-joined" onclick="alreadyJoined()">Already Joined</button>
         </div>
     </div>
+
+    <!-- Telegram Join Button -->
+    <a href="https://t.me/cricketsparx" target="_blank" class="telegram-button">Join Our Telegram Channel</a>
 
     <script>
         // Show the Telegram popup when the page loads
