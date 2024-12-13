@@ -1,0 +1,191 @@
+/* Basic Styling */
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background-color: #1d1d1d;
+
+    color: white;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+.header {
+
+    background-color: #222;
+
+    padding: 1px;
+
+    text-align: center;
+
+}
+
+h1 {
+
+    font-size: 2rem;
+
+}
+
+.matches-container {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    margin-top: 20px;
+
+}
+
+.match-card {
+
+    background-color: #333;
+
+    margin: 10px;
+
+    padding: 15px;
+
+    border-radius: 8px;
+
+    width: 250px;
+
+    text-align: center;
+
+}
+
+.match-card img {
+
+    width: 100%;
+
+    border-radius: 8px;
+
+}
+
+.match-card h3 {
+
+    font-size: 1.2rem;
+
+    margin: 10px 0;
+
+}
+
+.match-card .league-name {
+
+    font-size: 1rem;
+
+    margin: 5px 0;
+
+}
+
+.match-card .time {
+
+    font-size: 0.9rem;
+
+    margin: 10px 0;
+
+}
+
+.match-card .watch-now {
+
+    display: inline-block;
+
+    background-color: #007bff;
+
+    padding: 10px;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+
+}
+
+.telegram-button {
+
+    display: inline-block;
+
+    background-color: #007bff;
+
+    padding: 10px;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+
+    margin: 20px auto;
+
+    text-align: center;
+
+}
+
+/* Popup Styling */
+
+.popup {
+
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 9999;
+
+}
+
+.popup-content {
+
+    background-color: black;
+
+    color: white;
+
+    padding: 30px;
+
+    border-radius: 8px;
+
+    text-align: center;
+
+}
+
+.popup-content button {
+
+    background-color: #007bff;
+
+    padding: 10px 20px;
+
+    margin: 10px;
+
+    border: none;
+
+    color: white;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+}
+
+.popup-content button:hover {
+
+    background-color: #0056b3;
+
+}
