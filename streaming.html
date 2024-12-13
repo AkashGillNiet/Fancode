@@ -37,47 +37,40 @@
 
         .back-button {
             margin-top: 20px;
-            padding: 10px;
-            background-color: #007bff;
+            padding: 10px 20px;
+            background-color: #28a745;
             color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
             text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
         }
 
         .back-button:hover {
-            background-color: #0056b3;
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
-
     <div class="stream-container">
         <h1>Live Stream</h1>
-        
-        <!-- Video player -->
-        <video controls autoplay id="stream-video">
-            <source id="stream-source" type="video/mp4">
+        <video controls>
+            <source id="streamSource" type="video/mp4">
             Your browser does not support the video tag.
         </video>
 
-        <br>
         <a href="index.html" class="back-button">Back to Matches</a>
     </div>
 
     <script>
-        // Get the stream URL from the query string
+        // Get the URL parameter from the query string (streamUrl)
         const urlParams = new URLSearchParams(window.location.search);
         const streamUrl = urlParams.get('streamUrl');
 
-        // If a valid stream URL is provided, set it as the source of the video
+        // Set the video source to the stream URL
         if (streamUrl) {
-            const videoSource = document.getElementById("stream-source");
-            videoSource.src = streamUrl;
-            document.getElementById("stream-video").load();
+            document.getElementById('streamSource').src = streamUrl;
+            document.querySelector('video').load();
         }
     </script>
-
 </body>
 </html>
