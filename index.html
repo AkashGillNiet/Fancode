@@ -6,57 +6,53 @@
     <title>Fancode Live Matches</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #000;
+            background-color: black;
             color: white;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-        }
-
-        #title {
-            text-align: center;
-            color: #fff;
-            margin-top: 20px;
         }
 
         #matches-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-around;
             margin-top: 20px;
         }
 
         .match-card {
             background-color: #333;
+            padding: 20px;
             margin: 10px;
-            padding: 10px;
+            border-radius: 8px;
             width: 250px;
             text-align: center;
-            border-radius: 8px;
-            transition: transform 0.2s;
-        }
-
-        .match-card:hover {
-            transform: scale(1.05);
         }
 
         .match-card img {
             width: 100%;
-            border-radius: 5px;
+            height: auto;
+            border-radius: 8px;
         }
 
         .match-card h3 {
-            margin: 10px 0;
+            font-size: 18px;
+            margin-top: 10px;
         }
 
         .match-card p {
+            font-size: 14px;
             color: #ccc;
         }
 
         .watch-now {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
             background-color: #007bff;
             color: white;
-            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
             text-decoration: none;
             border-radius: 5px;
         }
@@ -65,141 +61,142 @@
             background-color: #0056b3;
         }
 
-        /* Telegram Popup */
-        .popup {
+        .telegram-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .telegram-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Popup styles */
+        #popup {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.8); /* Transparent black background */
+            z-index: 1000;
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+            flex-direction: column;
+            color: white;
+            text-align: center;
         }
 
-        .popup-content {
-            background-color: #fff;
+        #popup .popup-content {
+            background-color: #222;
             padding: 20px;
             border-radius: 8px;
-            text-align: center;
             width: 300px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
         }
 
-        .popup a {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
+        #popup .popup-content h2 {
+            margin-bottom: 20px;
         }
 
-        .popup button {
-            margin-top: 10px;
+        .popup-btn {
             padding: 10px;
+            background-color: #007bff;
+            color: white;
             border: none;
-            background-color: #007bff;
-            color: white;
             cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .popup button:hover {
-            background-color: #0056b3;
-        }
-
-        /* Telegram Button */
-        .telegram-button {
-            display: block;
-            background-color: #007bff;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin: 20px auto;
-            width: 80%;
-            border-radius: 5px;
             text-decoration: none;
+            border-radius: 5px;
+            margin: 5px;
         }
 
-        .telegram-button:hover {
+        .popup-btn:hover {
             background-color: #0056b3;
         }
+
     </style>
 </head>
 <body>
 
-    <h1 id="title">Fancode Live Matches</h1>
-
-    <!-- Matches Container -->
-    <div id="matches-container">
-        <!-- Match cards will be dynamically added here -->
-    </div>
-
-    <!-- Telegram Join Popup -->
-    <div id="popup" class="popup">
+    <!-- Popup -->
+    <div id="popup">
         <div class="popup-content">
-            <h2>Join Our Telegram Channel</h2>
-            <p>Join our Telegram channel <strong>@cricketsparx</strong> for live updates.</p>
-            <a href="https://t.me/yourchannel" target="_blank">Join Now</a>
-            <button onclick="closePopup()">Already Joined</button>
+            <h2>Join Our Telegram Channel @cricketsparx</h2>
+            <button class="popup-btn" id="joinBtn">Join Now</button>
+            <button class="popup-btn" id="joinedBtn">Already Joined</button>
         </div>
     </div>
 
-    <!-- Telegram Button -->
-    <a href="https://t.me/yourchannel" class="telegram-button" target="_blank">Join Our Telegram Channel</a>
+    <h1 style="text-align:center; color:white;">Fancode Live Matches</h1>
+
+    <div id="matches-container"></div>
 
     <script>
-        // Match data
+        // Close popup if 'Already Joined' is clicked
+        document.getElementById("joinedBtn").onclick = function() {
+            document.getElementById("popup").style.display = "none";
+        };
+
+        // Close popup if 'Join Now' is clicked
+        document.getElementById("joinBtn").onclick = function() {
+            window.open("https://t.me/cricketsparx", "_blank"); // Telegram channel link
+            document.getElementById("popup").style.display = "none";
+        };
+
+        // Matches array
         const matches = [
             {
-                image: "https://via.placeholder.com/250x150", // Replace with actual image URL
+                image: "https://via.placeholder.com/250x150",
                 league: "IPL 2024",
                 match: "Team A vs Team B",
                 time: "2024-12-13T16:00:00",
-                link: "#"
+                link: "streaming.html"
             },
             {
-                image: "https://via.placeholder.com/250x150", // Replace with actual image URL
+                image: "https://via.placeholder.com/250x150",
                 league: "Football League",
                 match: "Team C vs Team D",
                 time: "2024-12-13T18:00:00",
-                link: "#"
+                link: "streaming.html"
             },
             {
-                image: "https://via.placeholder.com/250x150", // Replace with actual image URL
+                image: "https://via.placeholder.com/250x150",
                 league: "Basketball Championship",
                 match: "Team E vs Team F",
                 time: "2024-12-13T14:00:00",
-                link: "#"
+                link: "streaming.html"
             },
             {
-                image: "https://via.placeholder.com/250x150", // Replace with actual image URL
+                image: "https://via.placeholder.com/250x150",
                 league: "Tennis Open",
                 match: "Player A vs Player B",
                 time: "2024-12-14T10:00:00",
-                link: "#"
+                link: "streaming.html"
             },
             {
-                image: "https://via.placeholder.com/250x150", // Replace with actual image URL
+                image: "https://via.placeholder.com/250x150",
                 league: "Cricket League",
                 match: "Team G vs Team H",
                 time: "2024-12-14T12:00:00",
-                link: "#"
+                link: "streaming.html"
             },
             {
-                image: "https://via.placeholder.com/250x150", // Replace with actual image URL
+                image: "https://via.placeholder.com/250x150",
                 league: "Baseball Championship",
                 match: "Team I vs Team J",
                 time: "2024-12-14T15:00:00",
-                link: "#"
+                link: "streaming.html"
             }
         ];
 
-        // Function to display matches
         function displayMatches() {
             const container = document.getElementById("matches-container");
             container.innerHTML = ""; // Clear existing content
-
-            matches.sort((a, b) => new Date(a.time) - new Date(b.time));
 
             matches.forEach(match => {
                 const card = document.createElement("div");
@@ -214,18 +211,22 @@
                 card.innerHTML = matchHTML;
                 container.appendChild(card);
             });
+
+            // Telegram join button at the bottom
+            const telegramButton = document.createElement("a");
+            telegramButton.href = "https://t.me/cricketsparx"; // Replace with your Telegram channel link
+            telegramButton.classList.add("telegram-button");
+            telegramButton.innerText = "Join Our Telegram Channel";
+            container.appendChild(telegramButton);
         }
 
-        // Display the matches when the page loads
-        window.onload = function () {
+        // Display matches on page load
+        window.onload = function() {
             displayMatches();
-            document.getElementById("popup").style.display = "flex"; // Show popup on load
+            document.getElementById("popup").style.display = "flex"; // Show popup
         };
 
-        // Function to close the popup
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
-        }
     </script>
+
 </body>
 </html>
